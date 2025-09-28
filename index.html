@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+
+    <title>Richard Escobar - Tattoo Artist | Geometría, Neotribal & Blackwork</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Richard Escobar - Tatuador profesional con más de 20 años de experiencia. Especialista en geometría sagrada, neotribal y blackwork en Buenos Aires, Argentina.">
+    <meta name="keywords" content="tatuajes, tattoo, geometría sagrada, neotribal, blackwork, Richard Escobar, Buenos Aires, Argentina, brazo, pierna, espalda">
+    <meta name="author" content="Richard Escobar">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://richardescobar.com/">
+    <meta property="og:title" content="Richard Escobar - Tattoo Artist">
+    <meta property="og:description" content="Especialista en geometría sagrada, neotribal y blackwork. Más de 20 años transformando piel en arte.">
+    <meta property="og:image" content="https://richardescobar.com/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Richard Escobar - Tattoo Artist">
+    <meta property="twitter:description" content="Especialista en geometría sagrada, neotribal y blackwork. Más de 20 años transformando piel en arte.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/logo1.svg">
+    <link rel="apple-touch-icon" href="images/logo1.svg">
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="images/background/Slider.jpg" as="image">
+    <link rel="preload" href="images/logo1.svg" as="image">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/vendor.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rozha+One&display=swap" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+    <!-- Lightbox CSS -->
+    <style>
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        .lightbox-info {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px 25px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 0 0 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .lightbox-description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .lightbox-close,
+            .lightbox-nav {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+
+            .lightbox-close {
+                top: 15px;
+                right: 15px;
+            }
+
+            .lightbox-prev {
+                left: 15px;
+            }
+
+            .lightbox-next {
+                right: 15px;
+            }
+
+            .lightbox-info {
+                bottom: 15px;
+                padding: 12px 20px;
+                max-width: 90%;
+            }
+
+            .lightbox-title {
+                font-size: 1rem;
+            }
+
+            .lightbox-description {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
+
+    <!-- Preloader -->
+    <div id="preloader" aria-hidden="true">
+        <div id="loader">
+            <div class="loader-logo">
+                <img src="images/logo1.svg" alt="Richard Escobar Logo" width="80" height="80">
+            </div>
+        </div>
+    </div>
+
+    <!-- Site Header -->
+    <header class="header-wrap" role="banner">
+        <div class="header-logo">
+            <a class="site-logo" href="index-v2.html" aria-label="Richard Escobar - Inicio">
+                <img src="images/logo1.svg" alt="Richard Escobar Logo" width="60" height="60">
+                <span class="logo-text">Richard Escobar</span>
+            </a>
+        </div>
+
+        <nav class="header-nav-wrap" role="navigation" aria-label="Navegación principal">
+            <ul id="navbar" class="header-main-nav">
+                <li><a href="index-v2.html" class="nav-link active">Inicio</a></li>
+                <li><a href="galeria.html" class="nav-link">Galería</a></li>
+                <li><a href="simbolismo.html" class="nav-link">Simbolismo</a></li>
+                <li><a href="sobre-mi.html" class="nav-link">Sobre mí</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+
+            <ul class="header-social" aria-label="Redes sociales">
+                <li>
+                    <a class="social-icon" href="https://www.instagram.com/richard.scobar/" target="_blank" rel="noopener" aria-label="Instagram">
+                        <span class="iconify" data-icon="la:instagram"></span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-icon" href="https://wa.me/5491144567890" target="_blank" rel="noopener" aria-label="WhatsApp">
+                        <span class="iconify" data-icon="la:whatsapp"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <button class="header-menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+            <span></span>
+        </button>
+    </header>
+
+    <main id="main" role="main">
+
+        <!-- Hero Slider Enhanced -->
+        <section id="inicio" class="hero-slider-enhanced" aria-label="Presentación principal">
+            <div class="swiper heroSwiper">
+                <div class="swiper-wrapper">
+
+                    <!-- Slide 1: Arte en la Piel -->
+                    <div class="swiper-slide">
+                        <div class="slide-inner" style="background-image: url('images/background/Slider.jpg');" role="img" aria-label="Arte de tatuaje geométrico"></div>
+                        <div class="slide-overlay"></div>
+                        <div class="hero-caption">
+                            <div class="caption-content">
+                                <h1 class="hero-title">Arte en la Piel</h1>
+                                <p class="hero-subtitle">Creando obras únicas con geometría sagrada, neotribal y blackwork</p>
+                                <div class="hero-actions">
+                                    <a href="galeria.html" class="btn btn-outline" role="button">
+                                        Explorar Galería
+                                        <span class="iconify" data-icon="la:arrow-right"></span>
+                                    </a>
+                                    <a href="sobre-mi.html" class="btn btn-outline" role="button">Conoce mi historia</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Geometría Sagrada -->
+                    <div class="swiper-slide">
+                        <div class="slide-inner" style="background-image: url('images/background/banner5.jpg');" role="img" aria-label="Geometría sagrada en tatuajes"></div>
+                        <div class="slide-overlay"></div>
+                        <div class="hero-caption">
+                            <div class="caption-content">
+                                <h1 class="hero-title">Geometría Sagrada</h1>
+                                <p class="hero-subtitle">Cada línea cuenta una historia, cada forma tiene un significado ancestral</p>
+                                <div class="hero-actions">
+                                    <a href="galeria.html#brazo" class="btn btn-outline" role="button">
+                                        Ver Trabajos
+                                        <span class="iconify" data-icon="la:eye"></span>
+                                    </a>
+                                    <a href="simbolismo.html" class="btn btn-outline" role="button">Descubre significados</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Tradición y Modernidad -->
+                    <div class="swiper-slide">
+                        <div class="slide-inner" style="background-image: url('images/background/banner6.jpg');" role="img" aria-label="Tatuaje neotribal moderno"></div>
+                        <div class="slide-overlay"></div>
+                        <div class="hero-caption">
+                            <div class="caption-content">
+                                <h1 class="hero-title">Tradición y Modernidad</h1>
+                                <p class="hero-subtitle">Fusionando técnicas ancestrales con diseños contemporáneos</p>
+                                <div class="hero-actions">
+                                    <a href="contacto.html" class="btn btn-outline" role="button">
+                                        Reservar Cita
+                                        <span class="iconify" data-icon="la:calendar"></span>
+                                    </a>
+                                    <a href="galeria.html" class="btn btn-outline" role="button">Ver portafolio</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Enhanced Navigation -->
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next">
+                    <span class="iconify" data-icon="la:chevron-right"></span>
+                </div>
+                <div class="swiper-button-prev">
+                    <span class="iconify" data-icon="la:chevron-left"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Preview Section -->
+        <section id="gallery-preview" class="gallery-preview-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Galería de Trabajos</h2>
+                    <p class="section-subtitle">Una selección de mis mejores creaciones</p>
+                </div>
+
+                <div class="gallery-grid-preview">
+                    <div class="gallery-item">
+                        <img src="images/gallery-optimized/gallery_001.jpg" alt="Tatuaje de Richard Escobar - Brazo">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery-optimized/gallery_030_pierna.jpg" alt="Tatuaje de Richard Escobar - Pierna">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery-optimized/gallery_048_espalda.jpg" alt="Tatuaje de Richard Escobar - Espalda">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery-optimized/gallery_015.jpg" alt="Tatuaje de Richard Escobar - Brazo">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery-optimized/gallery_041_pierna.jpg" alt="Tatuaje de Richard Escobar - Pierna">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery-optimized/gallery_025.jpg" alt="Tatuaje de Richard Escobar - Brazo">
+                    </div>
+                </div>
+
+                <div class="section-cta">
+                    <a href="galeria.html" class="btn btn-dark btn-large">
+                        Ver Toda la Galería
+                        <span class="iconify" data-icon="la:images"></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Artist Statement -->
+        <section id="artist-statement" class="artist-statement-section">
+            <div class="container">
+                <div class="statement-content">
+                    <blockquote class="artist-quote">
+                        "El cuerpo como lienzo permanente,<br>
+                        la geometría como lenguaje universal"
+                    </blockquote>
+                    <cite class="quote-author">Richard Escobar</cite>
+                    <p class="statement-text">
+                        Cada tatuaje es una conversación entre el arte ancestral y la expresión personal.
+                        Mi trabajo fusiona la precisión geométrica con la fluidez orgánica,
+                        creando piezas únicas que honran tanto la tradición como la individualidad.
+                    </p>
+                    <div class="statement-actions">
+                        <a href="simbolismo.html" class="btn btn-outline">Descubre los significados</a>
+                        <a href="sobre-mi.html" class="btn btn-outline">Mi historia</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close">×</button>
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev">
+                <span class="iconify" data-icon="la:chevron-left"></span>
+            </button>
+            <button class="lightbox-nav lightbox-next" id="lightbox-next">
+                <span class="iconify" data-icon="la:chevron-right"></span>
+            </button>
+            <img id="lightbox-img" src="" alt="">
+            <div class="lightbox-info" id="lightbox-info">
+                <h3 class="lightbox-title" id="lightbox-title"></h3>
+                <p class="lightbox-description" id="lightbox-description"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Footer -->
+    <footer class="main-footer-enhanced" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="images/logo1.svg" alt="Richard Escobar Logo" class="footer-logo">
+                    <img src="images/background/firma.svg" alt="Firma Richard Escobar" class="footer-signature">
+                    <p>Tattoo Artist</p>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="galeria.html">Galería</a></li>
+                        <li><a href="simbolismo.html">Simbolismo</a></li>
+                        <li><a href="sobre-mi.html">Sobre mí</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <p>Buenos Aires, Argentina</p>
+                    <p><a href="mailto:richard@escobar.com">richard@escobar.com</a></p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/richard.scobar/" target="_blank" rel="noopener" aria-label="Instagram">
+                            <span class="iconify" data-icon="la:instagram"></span>
+                        </a>
+                        <a href="https://wa.me/5491144567890" target="_blank" rel="noopener" aria-label="WhatsApp">
+                            <span class="iconify" data-icon="la:whatsapp"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Richard Escobar. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TattooShop",
+      "name": "Richard Escobar - Tattoo Artist",
+      "description": "Tatuador profesional especializado en geometría sagrada, neotribal y blackwork. Más de 20 años de experiencia en Buenos Aires, Argentina.",
+      "url": "https://richardescobar.com",
+      "email": "richard@escobar.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Buenos Aires",
+        "addressCountry": "AR"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Richard Escobar",
+        "nationality": "Colombian",
+        "description": "Tatuador profesional con más de 20 años de experiencia"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios de Tatuaje",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Geometría Sagrada",
+              "description": "Tatuajes basados en patrones geométricos y simbolismo sagrado"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Neotribal",
+              "description": "Diseños tribales contemporáneos con técnicas modernas"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Blackwork",
+              "description": "Tatuajes en negro sólido con patrones y diseños complejos"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Lightbox Script for Gallery Preview -->
+    <script>
+        $(document).ready(function() {
+            // Gallery preview images data
+            const previewGalleryData = [
+                { src: 'images/gallery-optimized/gallery_001.jpg', title: 'Tatuaje de Brazo', description: 'Arte geométrico' },
+                { src: 'images/gallery-optimized/gallery_030_pierna.jpg', title: 'Tatuaje de Pierna', description: 'Arte en pierna' },
+                { src: 'images/gallery-optimized/gallery_048_espalda.jpg', title: 'Tatuaje de Espalda', description: 'Arte en espalda' },
+                { src: 'images/gallery-optimized/gallery_015.jpg', title: 'Tatuaje de Brazo', description: 'Arte blackwork' },
+                { src: 'images/gallery-optimized/gallery_041_pierna.jpg', title: 'Tatuaje de Pierna', description: 'Arte en pierna' },
+                { src: 'images/gallery-optimized/gallery_025.jpg', title: 'Tatuaje de Brazo', description: 'Líneas fluidas' }
+            ];
+
+            let currentLightboxIndex = 0;
+
+            // Lightbox functionality for preview
+            const PreviewLightbox = function() {
+                const lightbox = $('#lightbox');
+                const lightboxImg = $('#lightbox-img');
+                const lightboxTitle = $('#lightbox-title');
+                const lightboxDescription = $('#lightbox-description');
+                const closeBtn = $('#lightbox-close');
+                const prevBtn = $('#lightbox-prev');
+                const nextBtn = $('#lightbox-next');
+
+                // Open lightbox
+                const openLightbox = function(index) {
+                    currentLightboxIndex = index;
+                    const item = previewGalleryData[index];
+
+                    lightboxImg.attr('src', item.src);
+                    lightboxImg.attr('alt', item.title);
+                    lightboxTitle.text(item.title);
+                    lightboxDescription.text(item.description);
+
+                    lightbox.css('display', 'flex');
+                    setTimeout(() => lightbox.addClass('active'), 10);
+                    $('body').css('overflow', 'hidden');
+                };
+
+                // Close lightbox
+                const closeLightbox = function() {
+                    lightbox.removeClass('active');
+                    setTimeout(() => {
+                        lightbox.css('display', 'none');
+                        $('body').css('overflow', '');
+                    }, 300);
+                };
+
+                // Navigate to previous image
+                const prevImage = function() {
+                    currentLightboxIndex = currentLightboxIndex > 0 ? currentLightboxIndex - 1 : previewGalleryData.length - 1;
+                    openLightbox(currentLightboxIndex);
+                };
+
+                // Navigate to next image
+                const nextImage = function() {
+                    currentLightboxIndex = currentLightboxIndex < previewGalleryData.length - 1 ? currentLightboxIndex + 1 : 0;
+                    openLightbox(currentLightboxIndex);
+                };
+
+                // Event listeners
+                closeBtn.on('click', closeLightbox);
+                prevBtn.on('click', prevImage);
+                nextBtn.on('click', nextImage);
+
+                // Close on overlay click
+                lightbox.on('click', function(e) {
+                    if (e.target === this) closeLightbox();
+                });
+
+                // Keyboard navigation
+                $(document).on('keydown', function(e) {
+                    if (!lightbox.hasClass('active')) return;
+
+                    switch(e.key) {
+                        case 'Escape':
+                            closeLightbox();
+                            break;
+                        case 'ArrowLeft':
+                            prevImage();
+                            break;
+                        case 'ArrowRight':
+                            nextImage();
+                            break;
+                    }
+                });
+
+                // Touch/swipe support for mobile
+                let touchStartX = 0;
+                let touchEndX = 0;
+
+                lightbox.on('touchstart', function(e) {
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+
+                lightbox.on('touchend', function(e) {
+                    touchEndX = e.changedTouches[0].screenX;
+                    const swipeDistance = Math.abs(touchEndX - touchStartX);
+
+                    if (swipeDistance > 50) {
+                        if (touchEndX < touchStartX) {
+                            nextImage(); // Swipe left = next
+                        } else {
+                            prevImage(); // Swipe right = previous
+                        }
+                    }
+                });
+
+                return { openLightbox };
+            };
+
+            // Initialize lightbox
+            const lightboxInstance = PreviewLightbox();
+
+            // Add click events to gallery preview items
+            $('.gallery-grid-preview .gallery-item').each(function(index) {
+                $(this).on('click', function() {
+                    lightboxInstance.openLightbox(index);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

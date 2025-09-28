@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Primary Meta Tags -->
+    <title>Simbolismo | Richard Escobar - Tattoo Artist</title>
+    <meta name="title" content="Simbolismo | Richard Escobar - Tattoo Artist">
+    <meta name="description" content="Descubre el significado profundo detrás de cada símbolo. Geometría sagrada, neotribal y blackwork con propósito y significado ancestral.">
+    <meta name="keywords" content="richard escobar, simbolismo, tatuajes, geometría sagrada, neotribal, blackwork, significados, símbolos">
+    <meta name="author" content="Richard Escobar">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://richardescobar.com/simbolismo.html">
+    <meta property="og:title" content="Simbolismo | Richard Escobar - Tattoo Artist">
+    <meta property="og:description" content="El significado profundo detrás de cada símbolo y diseño.">
+    <meta property="og:image" content="images/gallery-optimized/gallery_001.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Oswald:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Additional Simbolismo Styles -->
+    <style>
+        /* Simbolismo Page Specific Styles */
+        .simbolismo-page {
+            padding-top: 120px;
+            min-height: 100vh;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .page-title {
+            font-family: 'Rozha One', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            color: #111;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        /* Symbols Grid */
+        .symbols-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .symbol-card {
+            background: #f9f9f9;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .symbol-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            background: #fff;
+        }
+
+        .symbol-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            display: block;
+            color: #111;
+        }
+
+        /* Enhanced Symbol Card with Pattern Only */
+        .symbol-card.enhanced {
+            padding: 40px;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .pattern-main {
+            width: 100%;
+            max-width: 280px;
+            height: 280px;
+            margin: 0 auto 30px;
+            border-radius: 12px;
+            border: 2px solid #eee;
+            padding: 15px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pattern-main:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .pattern-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .pattern-main:hover .pattern-image {
+            transform: scale(1.05);
+        }
+
+        .symbol-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #111;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .symbol-description {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* Philosophy Section */
+        .philosophy-section {
+            background: #111;
+            color: #fff;
+            padding: 100px 0;
+            margin: 80px 0;
+            text-align: center;
+        }
+
+        .philosophy-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .philosophy-quote {
+            font-family: 'Rozha One', serif;
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-style: italic;
+            line-height: 1.4;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .philosophy-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* Sacred Geometry Section */
+        .sacred-geometry {
+            padding: 80px 0;
+        }
+
+        .geometry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .geometry-item {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .geometry-shape {
+            width: 120px;
+            height: 120px;
+            border: 2px solid #111;
+            margin: 0 auto 20px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .geometry-shape.circle {
+            border-radius: 50%;
+        }
+
+        .geometry-shape.triangle {
+            border: none;
+            width: 0;
+            height: 0;
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-bottom: 104px solid #111;
+            margin-bottom: 30px;
+        }
+
+        .geometry-shape.square {
+            border-radius: 0;
+        }
+
+        .geometry-item:hover .geometry-shape {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .geometry-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #111;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .geometry-meaning {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .simbolismo-cta {
+            text-align: center;
+            padding: 80px 0;
+            background: #f8f8f8;
+        }
+
+        .cta-title {
+            font-family: 'Rozha One', serif;
+            font-size: 2rem;
+            color: #111;
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .simbolismo-page {
+                padding-top: 100px;
+            }
+
+            .symbols-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .symbol-card {
+                padding: 30px 25px;
+            }
+
+            .symbol-card.enhanced {
+                padding: 25px 20px;
+            }
+
+            .pattern-main {
+                max-width: 220px;
+                height: 220px;
+            }
+
+            .philosophy-section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+
+<body>
+    <!-- Enhanced Header -->
+    <header class="header-wrap" role="banner">
+        <div class="header-logo">
+            <a class="site-logo" href="index.html" aria-label="Richard Escobar - Inicio">
+                <img src="images/logo1.svg" alt="Richard Escobar Logo" width="60" height="60">
+                <span class="logo-text">Richard Escobar</span>
+            </a>
+        </div>
+
+        <nav class="header-nav-wrap" role="navigation" aria-label="Navegación principal">
+            <ul id="navbar" class="header-main-nav">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="galeria.html" class="nav-link">Galería</a></li>
+                <li><a href="simbolismo.html" class="nav-link active">Simbolismo</a></li>
+                <li><a href="sobre-mi.html" class="nav-link">Sobre Mí</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+
+            <ul class="header-social" aria-label="Redes sociales">
+                <li>
+                    <a class="social-icon" href="https://www.instagram.com/richard.scobar/" target="_blank" rel="noopener" aria-label="Instagram">
+                        <span class="iconify" data-icon="la:instagram"></span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-icon" href="https://wa.me/5491144567890" target="_blank" rel="noopener" aria-label="WhatsApp">
+                        <span class="iconify" data-icon="la:whatsapp"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <button class="header-menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Simbolismo Page Content -->
+    <main class="simbolismo-page">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1 class="page-title">Simbolismos</h1>
+                <p class="page-subtitle">
+                    Algunos de los patrones geométricos que uso en la elaboración de mis diseños son de origen oriental,
+                    más específicamente de la cultura japonesa. Estos diseños representan animales, plantas o elementos de la naturaleza.
+                </p>
+            </div>
+
+            <!-- Main Symbols Grid -->
+            <div class="symbols-grid">
+                <div class="symbol-card enhanced">
+                    <!-- Pattern SVG -->
+                    <div class="pattern-main">
+                        <img src="images/asanoha-pattern.svg" alt="Patrón Asanoha" class="pattern-image">
+                    </div>
+
+                    <h3 class="symbol-title">Asanoha</h3>
+                    <p class="symbol-description">
+                        Patrón geométrico en forma de estrella de seis puntas que representa las hojas de cáñamo.
+                        Esta planta es conocida por su resistencia y crecimiento rápido y recto, por lo que el patrón
+                        simboliza vigor, resistencia, crecimiento saludable y protección. Tradicionalmente se usaba
+                        en la ropa de los bebés para otorgarles estas cualidades protectoras.
+                    </p>
+                </div>
+
+                <div class="symbol-card enhanced">
+                    <!-- Pattern PNG -->
+                    <div class="pattern-main">
+                        <img src="images/sayagata-pattern.png" alt="Patrón Sayagata" class="pattern-image">
+                    </div>
+
+                    <h3 class="symbol-title">Sayagata</h3>
+                    <p class="symbol-description">
+                        Patrón geométrico continuo derivado de símbolos budistas, caracterizado por líneas entrelazadas
+                        que forman una red infinita. Representa la conexión eterna entre todos los elementos del universo,
+                        la continuidad de la vida, la buena fortuna y la prosperidad. Su diseño sin fin simboliza
+                        la interconexión entre lo divino y lo terrenal.
+                    </p>
+                </div>
+
+                <div class="symbol-card enhanced">
+                    <!-- Pattern PNG -->
+                    <div class="pattern-main">
+                        <img src="images/SEIGAIHA-pattern.png" alt="Patrón Seigaiha" class="pattern-image">
+                    </div>
+
+                    <h3 class="symbol-title">Seigaiha</h3>
+                    <p class="symbol-description">
+                        Patrón tradicional japonés que representa las olas del mar en calma, creando semicírculos
+                        concéntricos que fluyen armoniosamente. Simboliza la tranquilidad, la serenidad, la fuerza
+                        pacífica del agua y la buena fortuna. Su movimiento ondulante representa el flujo continuo
+                        de la vida y la prosperidad que llega como las olas del mar.
+                    </p>
+                </div>
+
+                <div class="symbol-card enhanced">
+                    <!-- Pattern Image -->
+                    <div class="pattern-main">
+                        <img src="images/Kikko.jpg" alt="Patrón Kikko" class="pattern-image">
+                    </div>
+
+                    <h3 class="symbol-title">Kikko</h3>
+                    <p class="symbol-description">
+                        Patrón de hexágonos inspirado en el caparazón de las tortugas, animales venerados en la cultura
+                        japonesa por su longevidad excepcional. Cada hexágono representa estabilidad y resistencia,
+                        mientras que el conjunto simboliza una vida larga, buena salud, sabiduría acumulada y
+                        protección contra las adversidades.
+                    </p>
+                </div>
+
+                <div class="symbol-card enhanced">
+                    <!-- Pattern Image -->
+                    <div class="pattern-main">
+                        <img src="images/bishamon-kikko.jpg" alt="Patrón Bishamon Kikko" class="pattern-image">
+                    </div>
+
+                    <h3 class="symbol-title">Bishamon Kikko</h3>
+                    <p class="symbol-description">
+                        Patrón geométrico inspirado en las escamas de la armadura de Bishamonten, uno de los siete
+                        dioses de la fortuna en el budismo japonés y guardian protector. Su diseño entrelazado
+                        representa protección divina, fuerza militar, prosperidad y buena fortuna. Es considerado
+                        un amuleto poderoso contra el mal y para atraer la abundancia.
+                    </p>
+                </div>
+
+                <div class="symbol-card enhanced">
+                    <!-- Pattern Image -->
+                    <div class="pattern-main">
+                        <img src="images/shipo-pattern.png" alt="Patrón Shippo" class="pattern-image">
+                    </div>
+
+                    <h3 class="symbol-title">Shippo</h3>
+                    <p class="symbol-description">
+                        Patrón de círculos entrelazados que representa los siete tesoros sagrados del budismo.
+                        Cada círculo simboliza uno de estos objetos preciosos: oro, plata, coral, perlas, lapislázuli,
+                        cristal y ágata. El patrón completo atrae la armonía familiar, el éxito financiero,
+                        las relaciones prósperas y la abundancia espiritual.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <section class="simbolismo-cta">
+            <div class="container">
+                <h2 class="cta-title">¿Te interesa algún patrón en particular?</h2>
+                <p class="cta-text">
+                    Cada patrón puede adaptarse y combinarse para crear un diseño único
+                    que refleje tu personalidad y propósito.
+                </p>
+                <div class="cta-actions">
+                    <a href="galeria.html" class="btn btn-dark">Ver Ejemplos</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="main-footer-enhanced" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="images/logo1.svg" alt="Richard Escobar Logo" class="footer-logo">
+                    <img src="images/background/firma.svg" alt="Firma Richard Escobar" class="footer-signature">
+                    <p>Tattoo Artist</p>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="galeria.html">Galería</a></li>
+                        <li><a href="simbolismo.html">Simbolismo</a></li>
+                        <li><a href="sobre-mi.html">Sobre mí</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <p>Buenos Aires, Argentina</p>
+                    <p><a href="mailto:richard@escobar.com">richard@escobar.com</a></p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/richard.scobar/" target="_blank" rel="noopener" aria-label="Instagram">
+                            <span class="iconify" data-icon="la:instagram"></span>
+                        </a>
+                        <a href="https://wa.me/5491144567890" target="_blank" rel="noopener" aria-label="WhatsApp">
+                            <span class="iconify" data-icon="la:whatsapp"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Richard Escobar. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- Simbolismo Specific Script -->
+    <script>
+        (function($) {
+            'use strict';
+
+            // Simbolismo page interactions
+            $(document).ready(function() {
+                console.log('🔮 Simbolismo page loaded');
+
+                // Animate symbols on scroll
+                if ('IntersectionObserver' in window) {
+                    const symbolObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.style.animationDelay = Math.random() * 0.5 + 's';
+                                entry.target.classList.add('fade-in');
+                                symbolObserver.unobserve(entry.target);
+                            }
+                        });
+                    }, { threshold: 0.2 });
+
+                    document.querySelectorAll('.symbol-card, .geometry-item').forEach(card => {
+                        symbolObserver.observe(card);
+                    });
+                }
+
+                // Add hover effects to geometry shapes
+                $('.geometry-shape').on('mouseenter', function() {
+                    $(this).css('transform', 'rotate(15deg) scale(1.2)');
+                }).on('mouseleave', function() {
+                    $(this).css('transform', 'rotate(0deg) scale(1)');
+                });
+            });
+
+            // Optional: Add click to zoom functionality for patterns
+            $('.pattern-image').on('click', function() {
+                $(this).parent().toggleClass('zoomed');
+            });
+
+        })(window.jQuery);
+    </script>
+</body>
+</html>

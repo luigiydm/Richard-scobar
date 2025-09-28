@@ -1,0 +1,22 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos temporales
+*.tmp
+*.bak
+*~
+
+# Carpetas de backup
+*backup/
+*temp/
+
+# Archivos de configuración local
+.env
+*.local
+
+# Logs
+*.log
+
+# Carpeta de contenido original (ya copiamos lo necesario)
+Contenido\ para\ web\ tatuajes/
