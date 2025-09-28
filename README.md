@@ -1,208 +1,117 @@
-# Richard Scobar - Tattoo Artist Portfolio
+# Richard Escobar - Tattoo Artist Portfolio
 
-Portfolio minimalista inspirado en el diseño de NISSACO.jp para el tatuador profesional Richard Scobar.
+Sitio web profesional para el tatuador Richard Escobar, especialista en geometría sagrada, neotribal y blackwork.
 
 ## 🎨 Características
 
-- **Diseño Ultra Minimalista**: Inspirado en nissaco.jp
-- **Galería Dinámica**: Soporte para 57+ imágenes
-- **Responsive**: Optimizado para móviles y desktop
-- **Performance**: Lazy loading y optimizaciones
+- **Diseño Responsive**: Optimizado para desktop, tablet y móvil
+- **Galería Interactiva**: Filtrado por ubicación corporal (brazo, pierna, espalda)
+- **Simbolismo Japonés**: Página dedicada a patrones tradicionales
+- **Lightbox Moderno**: Navegación fluida entre imágenes
 - **SEO Optimizado**: Meta tags y structured data
 
 ## 📁 Estructura del Proyecto
 
 ```
 Web-Richard/
-├── index-new.html          # Página principal (NUEVA)
+├── index.html              # Página principal
+├── galeria.html            # Galería completa con filtros
+├── simbolismo.html         # Patrones japoneses
+├── sobre-mi.html           # Información del artista
+├── contacto.html           # Información de contacto
 ├── css/
-│   ├── style-new.css       # Estilos minimalistas (NUEVO)
-│   └── style.css           # Estilos antiguos
+│   ├── style.css           # Estilos principales
+│   ├── vendor.css          # Librerías externas
+│   └── bootstrap.min.css   # Framework CSS
 ├── js/
-│   ├── script-new.js       # JavaScript optimizado (NUEVO)
-│   └── script.js           # JavaScript antiguo
+│   ├── script.js           # JavaScript principal
+│   ├── jquery-1.11.0.min.js
+│   └── plugins.js          # Librerías adicionales
 ├── images/
-│   ├── gallery/            # 8 imágenes actuales
-│   ├── gallery-optimized/  # Imágenes optimizadas (se genera)
-│   └── thumbs/             # Thumbnails (se genera)
-├── convert_images.py       # Script de conversión HEIC→JPG
-├── setup.sh               # Script de configuración
-└── README.md              # Este archivo
+│   ├── gallery-optimized/  # Galería de tatuajes
+│   ├── background/         # Imágenes de fondo
+│   └── thumbs/             # Miniaturas
+└── gallery_data.js         # Datos de la galería
 ```
 
-## 🚀 Instalación Rápida
+## 🌐 Páginas del Sitio
 
-### Opción 1: Script Automático
-```bash
-./setup.sh
-```
+### **Inicio (index.html)**
+- Hero section con presentación
+- Vista previa de trabajos destacados
+- Navegación principal
 
-### Opción 2: Manual
-```bash
-# 1. Crear entorno virtual
-python3 -m venv venv
-source venv/bin/activate
+### **Galería (galeria.html)**
+- Filtros por ubicación corporal
+- Lightbox para ver imágenes en detalle
+- Grid responsivo
 
-# 2. Instalar dependencias
-pip install pillow pillow-heif
+### **Simbolismo (simbolismo.html)**
+- 6 patrones japoneses tradicionales:
+  - **Asanoha**: Hojas de cáñamo (protección)
+  - **Sayagata**: Conexión divina
+  - **Seigaiha**: Olas del mar (tranquilidad)
+  - **Kikko**: Caparazón de tortuga (longevidad)
+  - **Bishamon Kikko**: Armadura protectora
+  - **Shippo**: Siete tesoros sagrados
 
-# 3. Convertir imágenes
-python convert_images.py
+### **Sobre Mí (sobre-mi.html)**
+- Biografía del artista
+- Experiencia y especialidades
 
-# 4. Abrir en navegador
-open index-new.html
-```
+### **Contacto (contacto.html)**
+- Información de contacto
+- Enlaces a redes sociales
 
-## 📸 Conversión de Imágenes
+## ⚙️ JavaScript Principal
 
-El proyecto incluye un script Python para convertir automáticamente las imágenes HEIC a formato web optimizado.
+### **Funcionalidades en script.js:**
+- **Navegación responsiva**: Menú hamburguesa en móvil
+- **Galería con filtros**: Sistema de categorías por ubicación
+- **Lightbox**: Vista detallada de imágenes con navegación
+- **Scroll suave**: Transiciones entre secciones
+- **Efectos visuales**: Animaciones y transiciones
 
-### Características del Conversor:
-- ✅ Convierte HEIC/HEIF a JPG
-- ✅ Optimiza tamaño y calidad para web
-- ✅ Genera thumbnails para carga rápida
-- ✅ Corrige orientación automáticamente
-- ✅ Crea nombres de archivo limpos
-- ✅ Genera HTML y JavaScript automáticamente
-
-### Formatos Soportados:
-- HEIC/HEIF (iPhone)
-- JPG/JPEG
-- PNG
-
-## 🎯 Diferencias con la Versión Anterior
-
-### ❌ Versión Antigua (index.html)
-- Diseño portfolio tradicional
-- CSS mezclado (1900+ líneas)
-- Hero slider complejo
-- Múltiples secciones
-- Bootstrap pesado
-
-### ✅ Nueva Versión (index-new.html)
-- Diseño ultra minimalista
-- CSS limpio y optimizado
-- Navegación simple
-- Galería como protagonista
-- Performance optimizado
-
-## 🌐 Uso del Sitio Web
-
-### Secciones:
-1. **Hero**: Presentación minimalista
-2. **Galería**: Grid masonry con lightbox
-3. **Sobre mí**: Información del artista
-4. **Contacto**: Información y redes sociales
-
-### Navegación:
-- Menú fijo con scroll suave
-- Indicador de progreso
-- Menú hamburguesa en móvil
-
-## 🔧 Personalización
-
-### Agregar Más Imágenes:
+### **Galería Interactiva:**
 ```javascript
-// En el JavaScript
-window.addGalleryImage('ruta/imagen.jpg', 'Descripción');
+// Filtrado por categorías
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        showFilteredImages(filter);
+    });
+});
 ```
 
-### Cambiar Colores:
-```css
-/* En style-new.css */
-body { background-color: #tu-color; }
-```
+## 🎯 Información del Artista
 
-### Modificar Textos:
-Edita directamente en `index-new.html`
+- **Nombre**: Richard Escobar
+- **Especialidades**: Geometría sagrada, Neotribal, Blackwork
+- **Experiencia**: 20+ años
+- **Ubicación**: Buenos Aires, Argentina
+- **Instagram**: [@richard.scobar](https://www.instagram.com/richard.scobar/)
+
+## 🚀 Cómo Usar
+
+1. Abrir `index.html` en el navegador
+2. Navegar entre las diferentes secciones
+3. Usar la galería para ver trabajos por categoría
+4. Explorar los simbolismos en la sección dedicada
 
 ## 📱 Responsive Design
 
-- **Desktop**: Grid de 3 columnas
-- **Tablet**: Grid de 2 columnas
-- **Mobile**: Grid de 1 columna
-- **Navigation**: Menú hamburguesa en móvil
+- **Desktop**: Layout completo con sidebar
+- **Tablet**: Grid adaptativo
+- **Móvil**: Menú hamburguesa y stack vertical
 
-## 🚀 Performance
-
-### Optimizaciones Incluidas:
-- Lazy loading de imágenes
-- Compresión JPEG progresiva
-- Thumbnails para carga rápida
-- Minificación de assets
-- Preload de recursos críticos
-
-### Métricas Objetivo:
-- **First Paint**: < 1.5s
-- **Largest Contentful Paint**: < 2.5s
-- **Cumulative Layout Shift**: < 0.1
-
-## 🔍 SEO
-
-### Incluido:
-- Meta tags optimizados
-- Open Graph para redes sociales
-- Schema.org structured data
-- Sitemap automático
-- Alt texts descriptivos
-
-## 📞 Contacto
-
-### Información del Cliente:
-- **Artista**: Richard Scobar (Richard Escobar)
-- **Especialidad**: Geometría, Neotribal, Blackwork
-- **Ubicación**: Buenos Aires, Argentina
-- **Experiencia**: 20+ años
-
-### Redes Sociales:
-- Instagram: [@richard.scobar](https://instagram.com/richard.scobar)
-- Facebook: [Richard Scobar Tattoo](https://facebook.com/richard.scobar.tattoo)
-- Email: richard@scobar.com
-
-## 📋 Próximos Pasos
-
-### Para el Desarrollador (tú):
-1. ✅ Ejecutar `./setup.sh` para configurar todo
-2. ✅ Revisar imágenes generadas en `images/gallery-optimized/`
-3. ⏳ Ajustar textos en `index-new.html` si necesario
-4. ⏳ Testear en diferentes dispositivos
-5. ⏳ Subir a servidor de producción
-
-### Para el Cliente:
-1. ⏳ Revisar galería de imágenes
-2. ⏳ Aprobar textos y descripciones
-3. ⏳ Proporcionar información de contacto final
-4. ⏳ Clasificar imágenes por categorías (futuro)
-
-## 🐛 Problemas Comunes
-
-### Error: "pillow-heif not found"
-```bash
-pip install pillow-heif
-```
-
-### Error: "Permission denied"
-```bash
-chmod +x setup.sh
-```
-
-### Imágenes no cargan:
-- Verificar rutas en el HTML
-- Comprobar que las imágenes se generaron correctamente
-
-## 📊 Tecnologías Utilizadas
+## 🔧 Tecnologías
 
 - **HTML5**: Estructura semántica
-- **CSS3**: Grid, Flexbox, Custom Properties
-- **JavaScript ES6**: Modules, Promises, Observers
-- **Python**: Procesamiento de imágenes
-- **PIL/Pillow**: Manipulación de imágenes
-- **Chocolat.js**: Lightbox minimalista
-
-## 📄 Licencia
-
-Proyecto privado para Richard Scobar Tattoo Artist.
+- **CSS3**: Grid, Flexbox, Media Queries
+- **JavaScript**: ES6, DOM manipulation
+- **jQuery**: Efectos y animaciones
+- **Bootstrap**: Grid system
 
 ---
 
-*Desarrollado por Luis Playero para Richard Scobar*
+*Sitio web desarrollado para Richard Escobar Tattoo Artist*
