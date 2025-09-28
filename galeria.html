@@ -382,29 +382,31 @@
 
         .lightbox-info {
             position: absolute;
-            bottom: 20px;
+            bottom: 15px;
             left: 50%;
             transform: translateX(-50%);
             color: white;
             text-align: center;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 15px 25px;
-            border-radius: 25px;
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.6);
+            padding: 8px 15px;
+            border-radius: 15px;
+            backdrop-filter: blur(8px);
+            max-width: 80%;
         }
 
         .lightbox-title {
             font-family: 'Oswald', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin: 0 0 5px 0;
+            font-size: 0.8rem;
+            font-weight: 400;
+            margin: 0 0 2px 0;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
+            opacity: 0.9;
         }
 
         .lightbox-description {
-            font-size: 0.9rem;
-            opacity: 0.9;
+            font-size: 0.7rem;
+            opacity: 0.8;
             margin: 0;
         }
 
@@ -642,79 +644,79 @@
 
             // Gallery data with correct classification based on filename
             const galleryData = [
-    { src: 'images/gallery-optimized/gallery_001.jpg', thumb: 'images/thumbs/gallery_001_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 1', description: 'Arte geométrico' },
-    { src: 'images/gallery-optimized/gallery_002.jpg', thumb: 'images/thumbs/gallery_002_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 2', description: 'Diseño detallado' },
-    { src: 'images/gallery-optimized/gallery_003.jpg', thumb: 'images/thumbs/gallery_003_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 3', description: 'Arte personalizado' },
-    { src: 'images/gallery-optimized/gallery_004.jpg', thumb: 'images/thumbs/gallery_004_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 4', description: 'Líneas precisas' },
-    { src: 'images/gallery-optimized/gallery_006.jpg', thumb: 'images/thumbs/gallery_006_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 6', description: 'Diseño complejo' },
-    { src: 'images/gallery-optimized/gallery_007.jpg', thumb: 'images/thumbs/gallery_007_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 7', description: 'Arte personalizado' },
-    { src: 'images/gallery-optimized/gallery_008.jpg', thumb: 'images/thumbs/gallery_008_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 8', description: 'Estilo detallado' },
-    { src: 'images/gallery-optimized/gallery_009.jpg', thumb: 'images/thumbs/gallery_009_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 9', description: 'Diseño simbólico' },
-    { src: 'images/gallery-optimized/gallery_010.jpg', thumb: 'images/thumbs/gallery_010_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 10', description: 'Arte geométrico' },
-    { src: 'images/gallery-optimized/gallery_011.jpg', thumb: 'images/thumbs/gallery_011_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 11', description: 'Diseño tribal' },
-    { src: 'images/gallery-optimized/gallery_012.jpg', thumb: 'images/thumbs/gallery_012_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 12', description: 'Arte monumental' },
-    { src: 'images/gallery-optimized/gallery_013.jpg', thumb: 'images/thumbs/gallery_013_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 13', description: 'Composición única' },
-    { src: 'images/gallery-optimized/gallery_014.jpg', thumb: 'images/thumbs/gallery_014_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 14', description: 'Estilo detallado' },
-    { src: 'images/gallery-optimized/gallery_015.jpg', thumb: 'images/thumbs/gallery_015_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 15', description: 'Arte blackwork' },
-    { src: 'images/gallery-optimized/gallery_016.jpg', thumb: 'images/thumbs/gallery_016_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 16', description: 'Composición única' },
-    { src: 'images/gallery-optimized/gallery_017.jpg', thumb: 'images/thumbs/gallery_017_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 17', description: 'Arte expresivo' },
-    { src: 'images/gallery-optimized/gallery_018.jpg', thumb: 'images/thumbs/gallery_018_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 18', description: 'Arte complejo' },
-    { src: 'images/gallery-optimized/gallery_019.jpg', thumb: 'images/thumbs/gallery_019_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 19', description: 'Líneas fluidas' },
-    { src: 'images/gallery-optimized/gallery_020.jpg', thumb: 'images/thumbs/gallery_020_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 20', description: 'Composición amplia' },
-    { src: 'images/gallery-optimized/gallery_021.jpg', thumb: 'images/thumbs/gallery_021_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 21', description: 'Arte geométrico' },
-    { src: 'images/gallery-optimized/gallery_022.jpg', thumb: 'images/thumbs/gallery_022_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 22', description: 'Estilo detallado' },
-    { src: 'images/gallery-optimized/gallery_023.jpg', thumb: 'images/thumbs/gallery_023_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 23', description: 'Diseño creativo' },
-    { src: 'images/gallery-optimized/gallery_024.jpg', thumb: 'images/thumbs/gallery_024_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 24', description: 'Arte tribal' },
-    { src: 'images/gallery-optimized/gallery_025.jpg', thumb: 'images/thumbs/gallery_025_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 25', description: 'Líneas fluidas' },
-    { src: 'images/gallery-optimized/gallery_026.jpg', thumb: 'images/thumbs/gallery_026_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 26', description: 'Arte realista' },
-    { src: 'images/gallery-optimized/gallery_027.jpg', thumb: 'images/thumbs/gallery_027_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 27', description: 'Arte complejo' },
-    { src: 'images/gallery-optimized/gallery_028.jpg', thumb: 'images/thumbs/gallery_028_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 28', description: 'Composición única' },
-    { src: 'images/gallery-optimized/gallery_029.jpg', thumb: 'images/thumbs/gallery_029_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 29', description: 'Diseño geométrico' },
-    { src: 'images/gallery-optimized/gallery_030_pierna.jpg', thumb: 'images/thumbs/gallery_030_thumb.jpg', location: 'pierna', title: 'Tatuaje de Pierna 30', description: 'Arte en pierna' },
-    { src: 'images/gallery-optimized/gallery_031.jpg', thumb: 'images/thumbs/gallery_031_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 31', description: 'Diseño intrincado' },
-    { src: 'images/gallery-optimized/gallery_032.jpg', thumb: 'images/thumbs/gallery_032_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 32', description: 'Estilo detallado' },
-    { src: 'images/gallery-optimized/gallery_033.jpg', thumb: 'images/thumbs/gallery_033_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 33', description: 'Obra maestra' },
-    { src: 'images/gallery-optimized/gallery_034.jpg', thumb: 'images/thumbs/gallery_034_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 34', description: 'Arte personalizado' },
-    { src: 'images/gallery-optimized/gallery_035.jpg', thumb: 'images/thumbs/gallery_035_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 35', description: 'Diseño tribal' },
-    { src: 'images/gallery-optimized/gallery_036.jpg', thumb: 'images/thumbs/gallery_036_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 36', description: 'Diseño simbólico' },
-    { src: 'images/gallery-optimized/gallery_037_pierna.jpg', thumb: 'images/thumbs/gallery_037_thumb.jpg', location: 'pierna', title: 'Tatuaje de Pierna 37', description: 'Arte en pierna' },
-    { src: 'images/gallery-optimized/gallery_038.jpg', thumb: 'images/thumbs/gallery_038_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 38', description: 'Arte realista' },
-    { src: 'images/gallery-optimized/gallery_039.jpg', thumb: 'images/thumbs/gallery_039_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 39', description: 'Diseño simbólico' },
-    { src: 'images/gallery-optimized/gallery_040.jpg', thumb: 'images/thumbs/gallery_040_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 40', description: 'Diseño intrincado' },
-    { src: 'images/gallery-optimized/gallery_041_pierna.jpg', thumb: 'images/thumbs/gallery_041_thumb.jpg', location: 'pierna', title: 'Tatuaje de Pierna 41', description: 'Arte en pierna' },
-    { src: 'images/gallery-optimized/gallery_042_pierna.jpg', thumb: 'images/thumbs/gallery_042_thumb.jpg', location: 'pierna', title: 'Tatuaje de Pierna 42', description: 'Arte en pierna' },
-    { src: 'images/gallery-optimized/gallery_043.jpg', thumb: 'images/thumbs/gallery_043_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 43', description: 'Diseño intrincado' },
-    { src: 'images/gallery-optimized/gallery_044.jpg', thumb: 'images/thumbs/gallery_044_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 44', description: 'Diseño geométrico' },
-    { src: 'images/gallery-optimized/gallery_045.jpg', thumb: 'images/thumbs/gallery_045_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 45', description: 'Arte complejo' },
-    { src: 'images/gallery-optimized/gallery_046.jpg', thumb: 'images/thumbs/gallery_046_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 46', description: 'Arte personalizado' },
-    { src: 'images/gallery-optimized/gallery_047.jpg', thumb: 'images/thumbs/gallery_047_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 47', description: 'Estilo detallado' },
-    { src: 'images/gallery-optimized/gallery_048_espalda.jpg', thumb: 'images/thumbs/gallery_048_thumb.jpg', location: 'espalda', title: 'Tatuaje de Espalda 48', description: 'Arte en espalda' },
-    { src: 'images/gallery-optimized/gallery_049.jpg', thumb: 'images/thumbs/gallery_049_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 49', description: 'Estilo detallado' },
-    { src: 'images/gallery-optimized/gallery_050.jpg', thumb: 'images/thumbs/gallery_050_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 50', description: 'Diseño geométrico' },
-    { src: 'images/gallery-optimized/gallery_051.jpg', thumb: 'images/thumbs/gallery_051_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 51', description: 'Obra maestra' },
-    { src: 'images/gallery-optimized/gallery_052.jpg', thumb: 'images/thumbs/gallery_052_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 52', description: 'Diseño intrincado' },
-    { src: 'images/gallery-optimized/gallery_053.jpg', thumb: 'images/thumbs/gallery_053_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 53', description: 'Arte realista' },
-    { src: 'images/gallery-optimized/gallery_054.jpg', thumb: 'images/thumbs/gallery_054_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 54', description: 'Diseño simbólico' },
-    { src: 'images/gallery-optimized/gallery_055.jpg', thumb: 'images/thumbs/gallery_055_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 55', description: 'Estilo detallado' },
-    { src: 'images/gallery-optimized/gallery_056.jpg', thumb: 'images/thumbs/gallery_056_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 56', description: 'Arte expresivo' },
-    { src: 'images/gallery-optimized/gallery_057.jpg', thumb: 'images/thumbs/gallery_057_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 57', description: 'Obra maestra' },
-    { src: 'images/gallery-optimized/gallery_058.jpg', thumb: 'images/thumbs/gallery_058_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 58', description: 'Diseño intrincado' },
-    { src: 'images/gallery-optimized/gallery_059.jpg', thumb: 'images/thumbs/gallery_059_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 59', description: 'Estilo detallado' },
-    { src: 'images/gallery-optimized/gallery_060.jpg', thumb: 'images/thumbs/gallery_060_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 60', description: 'Arte geométrico' },
-    { src: 'images/gallery-optimized/gallery_061.jpg', thumb: 'images/thumbs/gallery_061_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 61', description: 'Líneas fluidas' },
-    { src: 'images/gallery-optimized/gallery_062_espalda.jpg', thumb: 'images/thumbs/gallery_062_thumb.jpg', location: 'espalda', title: 'Tatuaje de Espalda 62', description: 'Arte en espalda' },
-    { src: 'images/gallery-optimized/gallery_063_pierna.jpg', thumb: 'images/thumbs/gallery_063_thumb.jpg', location: 'pierna', title: 'Tatuaje de Pierna 63', description: 'Arte en pierna' },
-    { src: 'images/gallery-optimized/gallery_064.jpg', thumb: 'images/thumbs/gallery_064_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 64', description: 'Arte personalizado' },
-    { src: 'images/gallery-optimized/tattoo_009.jpg', thumb: 'images/thumbs/tattoo_009_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 65', description: 'Arte geométrico' },
-    { src: 'images/gallery-optimized/tattoo_011.jpg', thumb: 'images/thumbs/tattoo_011_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 66', description: 'Diseño tribal' },
-    { src: 'images/gallery-optimized/tattoo_012.jpg', thumb: 'images/thumbs/tattoo_012_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 67', description: 'Arte blackwork' },
-    { src: 'images/gallery-optimized/tattoo_013.jpg', thumb: 'images/thumbs/tattoo_013_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 68', description: 'Diseño detallado' },
-    { src: 'images/gallery-optimized/tattoo_014_pierna.jpg', thumb: 'images/thumbs/tattoo_014_thumb.jpg', location: 'pierna', title: 'Tatuaje de Pierna 69', description: 'Arte en pierna' },
-    { src: 'images/gallery-optimized/tattoo_015.jpg', thumb: 'images/thumbs/tattoo_015_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 70', description: 'Arte personalizado' },
-    { src: 'images/gallery-optimized/tattoo_016.jpg', thumb: 'images/thumbs/tattoo_016_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 71', description: 'Diseño simbólico' },
-    { src: 'images/gallery-optimized/tattoo_017.jpg', thumb: 'images/thumbs/tattoo_017_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 72', description: 'Arte geométrico' },
-    { src: 'images/gallery-optimized/tattoo_018.jpg', thumb: 'images/thumbs/tattoo_018_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 73', description: 'Diseño complejo' },
-    { src: 'images/gallery-optimized/tattoo_019.jpg', thumb: 'images/thumbs/tattoo_019_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 74', description: 'Arte expresivo' }
+    { src: 'images/gallery-optimized/gallery_001.jpg', thumb: 'images/thumbs/gallery_001_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 1', description: '' },
+    { src: 'images/gallery-optimized/gallery_002.jpg', thumb: 'images/thumbs/gallery_002_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 2', description: '' },
+    { src: 'images/gallery-optimized/gallery_003.jpg', thumb: 'images/thumbs/gallery_003_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 3', description: '' },
+    { src: 'images/gallery-optimized/gallery_004.jpg', thumb: 'images/thumbs/gallery_004_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 4', description: '' },
+    { src: 'images/gallery-optimized/gallery_006.jpg', thumb: 'images/thumbs/gallery_006_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 6', description: '' },
+    { src: 'images/gallery-optimized/gallery_007.jpg', thumb: 'images/thumbs/gallery_007_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 7', description: '' },
+    { src: 'images/gallery-optimized/gallery_008.jpg', thumb: 'images/thumbs/gallery_008_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 8', description: '' },
+    { src: 'images/gallery-optimized/gallery_009.jpg', thumb: 'images/thumbs/gallery_009_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 9', description: '' },
+    { src: 'images/gallery-optimized/gallery_010.jpg', thumb: 'images/thumbs/gallery_010_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 10', description: '' },
+    { src: 'images/gallery-optimized/gallery_011.jpg', thumb: 'images/thumbs/gallery_011_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 11', description: '' },
+    { src: 'images/gallery-optimized/gallery_012.jpg', thumb: 'images/thumbs/gallery_012_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 12', description: '' },
+    { src: 'images/gallery-optimized/gallery_013.jpg', thumb: 'images/thumbs/gallery_013_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 13', description: '' },
+    { src: 'images/gallery-optimized/gallery_014.jpg', thumb: 'images/thumbs/gallery_014_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 14', description: '' },
+    { src: 'images/gallery-optimized/gallery_015.jpg', thumb: 'images/thumbs/gallery_015_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 15', description: '' },
+    { src: 'images/gallery-optimized/gallery_016.jpg', thumb: 'images/thumbs/gallery_016_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 16', description: '' },
+    { src: 'images/gallery-optimized/gallery_017.jpg', thumb: 'images/thumbs/gallery_017_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 17', description: '' },
+    { src: 'images/gallery-optimized/gallery_018.jpg', thumb: 'images/thumbs/gallery_018_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 18', description: '' },
+    { src: 'images/gallery-optimized/gallery_019.jpg', thumb: 'images/thumbs/gallery_019_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 19', description: '' },
+    { src: 'images/gallery-optimized/gallery_020.jpg', thumb: 'images/thumbs/gallery_020_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 20', description: '' },
+    { src: 'images/gallery-optimized/gallery_021.jpg', thumb: 'images/thumbs/gallery_021_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 21', description: '' },
+    { src: 'images/gallery-optimized/gallery_022.jpg', thumb: 'images/thumbs/gallery_022_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 22', description: '' },
+    { src: 'images/gallery-optimized/gallery_023.jpg', thumb: 'images/thumbs/gallery_023_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 23', description: '' },
+    { src: 'images/gallery-optimized/gallery_024.jpg', thumb: 'images/thumbs/gallery_024_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 24', description: '' },
+    { src: 'images/gallery-optimized/gallery_025.jpg', thumb: 'images/thumbs/gallery_025_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 25', description: '' },
+    { src: 'images/gallery-optimized/gallery_026.jpg', thumb: 'images/thumbs/gallery_026_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 26', description: '' },
+    { src: 'images/gallery-optimized/gallery_027.jpg', thumb: 'images/thumbs/gallery_027_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 27', description: '' },
+    { src: 'images/gallery-optimized/gallery_028.jpg', thumb: 'images/thumbs/gallery_028_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 28', description: '' },
+    { src: 'images/gallery-optimized/gallery_029.jpg', thumb: 'images/thumbs/gallery_029_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 29', description: '' },
+    { src: 'images/gallery-optimized/gallery_030_pierna.jpg', thumb: 'images/thumbs/gallery_030_thumb.jpg', location: 'pierna', title: 'Tatuaje de Pierna 30', description: '' },
+    { src: 'images/gallery-optimized/gallery_031.jpg', thumb: 'images/thumbs/gallery_031_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 31', description: '' },
+    { src: 'images/gallery-optimized/gallery_032.jpg', thumb: 'images/thumbs/gallery_032_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 32', description: '' },
+    { src: 'images/gallery-optimized/gallery_033.jpg', thumb: 'images/thumbs/gallery_033_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 33', description: '' },
+    { src: 'images/gallery-optimized/gallery_034.jpg', thumb: 'images/thumbs/gallery_034_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 34', description: '' },
+    { src: 'images/gallery-optimized/gallery_035.jpg', thumb: 'images/thumbs/gallery_035_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 35', description: '' },
+    { src: 'images/gallery-optimized/gallery_036.jpg', thumb: 'images/thumbs/gallery_036_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 36', description: '' },
+    { src: 'images/gallery-optimized/gallery_037_pierna.jpg', thumb: 'images/thumbs/gallery_037_thumb.jpg', location: 'pierna', title: 'Tatuaje de Pierna 37', description: '' },
+    { src: 'images/gallery-optimized/gallery_038.jpg', thumb: 'images/thumbs/gallery_038_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 38', description: '' },
+    { src: 'images/gallery-optimized/gallery_039.jpg', thumb: 'images/thumbs/gallery_039_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 39', description: '' },
+    { src: 'images/gallery-optimized/gallery_040.jpg', thumb: 'images/thumbs/gallery_040_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 40', description: '' },
+    { src: 'images/gallery-optimized/gallery_041_pierna.jpg', thumb: 'images/thumbs/gallery_041_thumb.jpg', location: 'pierna', title: 'Tatuaje de Pierna 41', description: '' },
+    { src: 'images/gallery-optimized/gallery_042_pierna.jpg', thumb: 'images/thumbs/gallery_042_thumb.jpg', location: 'pierna', title: 'Tatuaje de Pierna 42', description: '' },
+    { src: 'images/gallery-optimized/gallery_043.jpg', thumb: 'images/thumbs/gallery_043_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 43', description: '' },
+    { src: 'images/gallery-optimized/gallery_044.jpg', thumb: 'images/thumbs/gallery_044_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 44', description: '' },
+    { src: 'images/gallery-optimized/gallery_045.jpg', thumb: 'images/thumbs/gallery_045_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 45', description: '' },
+    { src: 'images/gallery-optimized/gallery_046.jpg', thumb: 'images/thumbs/gallery_046_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 46', description: '' },
+    { src: 'images/gallery-optimized/gallery_047.jpg', thumb: 'images/thumbs/gallery_047_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 47', description: '' },
+    { src: 'images/gallery-optimized/gallery_048_espalda.jpg', thumb: 'images/thumbs/gallery_048_thumb.jpg', location: 'espalda', title: 'Tatuaje de Espalda 48', description: '' },
+    { src: 'images/gallery-optimized/gallery_049.jpg', thumb: 'images/thumbs/gallery_049_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 49', description: '' },
+    { src: 'images/gallery-optimized/gallery_050.jpg', thumb: 'images/thumbs/gallery_050_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 50', description: '' },
+    { src: 'images/gallery-optimized/gallery_051.jpg', thumb: 'images/thumbs/gallery_051_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 51', description: '' },
+    { src: 'images/gallery-optimized/gallery_052.jpg', thumb: 'images/thumbs/gallery_052_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 52', description: '' },
+    { src: 'images/gallery-optimized/gallery_053.jpg', thumb: 'images/thumbs/gallery_053_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 53', description: '' },
+    { src: 'images/gallery-optimized/gallery_054.jpg', thumb: 'images/thumbs/gallery_054_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 54', description: '' },
+    { src: 'images/gallery-optimized/gallery_055.jpg', thumb: 'images/thumbs/gallery_055_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 55', description: '' },
+    { src: 'images/gallery-optimized/gallery_056.jpg', thumb: 'images/thumbs/gallery_056_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 56', description: '' },
+    { src: 'images/gallery-optimized/gallery_057.jpg', thumb: 'images/thumbs/gallery_057_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 57', description: '' },
+    { src: 'images/gallery-optimized/gallery_058.jpg', thumb: 'images/thumbs/gallery_058_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 58', description: '' },
+    { src: 'images/gallery-optimized/gallery_059.jpg', thumb: 'images/thumbs/gallery_059_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 59', description: '' },
+    { src: 'images/gallery-optimized/gallery_060.jpg', thumb: 'images/thumbs/gallery_060_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 60', description: '' },
+    { src: 'images/gallery-optimized/gallery_061.jpg', thumb: 'images/thumbs/gallery_061_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 61', description: '' },
+    { src: 'images/gallery-optimized/gallery_062_espalda.jpg', thumb: 'images/thumbs/gallery_062_thumb.jpg', location: 'espalda', title: 'Tatuaje de Espalda 62', description: '' },
+    { src: 'images/gallery-optimized/gallery_063_pierna.jpg', thumb: 'images/thumbs/gallery_063_thumb.jpg', location: 'pierna', title: 'Tatuaje de Pierna 63', description: '' },
+    { src: 'images/gallery-optimized/gallery_064.jpg', thumb: 'images/thumbs/gallery_064_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 64', description: '' },
+    { src: 'images/gallery-optimized/tattoo_009.jpg', thumb: 'images/thumbs/tattoo_009_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 65', description: '' },
+    { src: 'images/gallery-optimized/tattoo_011.jpg', thumb: 'images/thumbs/tattoo_011_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 66', description: '' },
+    { src: 'images/gallery-optimized/tattoo_012.jpg', thumb: 'images/thumbs/tattoo_012_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 67', description: '' },
+    { src: 'images/gallery-optimized/tattoo_013.jpg', thumb: 'images/thumbs/tattoo_013_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 68', description: '' },
+    { src: 'images/gallery-optimized/tattoo_014_pierna.jpg', thumb: 'images/thumbs/tattoo_014_thumb.jpg', location: 'pierna', title: 'Tatuaje de Pierna 69', description: '' },
+    { src: 'images/gallery-optimized/tattoo_015.jpg', thumb: 'images/thumbs/tattoo_015_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 70', description: '' },
+    { src: 'images/gallery-optimized/tattoo_016.jpg', thumb: 'images/thumbs/tattoo_016_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 71', description: '' },
+    { src: 'images/gallery-optimized/tattoo_017.jpg', thumb: 'images/thumbs/tattoo_017_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 72', description: '' },
+    { src: 'images/gallery-optimized/tattoo_018.jpg', thumb: 'images/thumbs/tattoo_018_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 73', description: '' },
+    { src: 'images/gallery-optimized/tattoo_019.jpg', thumb: 'images/thumbs/tattoo_019_thumb.jpg', location: 'brazo', title: 'Tatuaje de Brazo 74', description: '' }
 ];
 
             let currentFilter = 'todos';
