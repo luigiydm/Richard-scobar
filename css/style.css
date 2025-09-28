@@ -955,10 +955,23 @@ body {
   .footer-contact {
     width: 100%;
     max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-nav ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .footer-social {
     justify-content: center;
+    margin: 20px auto 0 auto;
   }
 }
 
@@ -1053,7 +1066,11 @@ body {
 
   .footer-content {
     gap: 30px;
-    padding: 0 15px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .footer-brand,
@@ -1061,20 +1078,60 @@ body {
   .footer-contact {
     max-width: 280px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
   .footer-logo {
     height: 60px;
-    margin-bottom: 15px;
+    margin: 0 auto 15px auto;
+    display: block;
   }
 
   .footer-signature {
     height: 140px;
+    margin: 10px auto;
+    display: block;
+  }
+
+  .footer-nav h4,
+  .footer-contact h4 {
+    text-align: center;
+    margin: 0 auto 20px auto;
+  }
+
+  .footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  .footer-nav ul li {
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .footer-contact p {
+    text-align: center;
+    margin: 0 auto 10px auto;
+  }
+
+  .footer-social {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto 0 auto;
+    gap: 15px;
   }
 
   .footer-bottom {
     padding-top: 30px;
     font-size: 0.8rem;
+    text-align: center;
+    margin: 0 auto;
   }
 }
 
