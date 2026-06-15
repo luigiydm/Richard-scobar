@@ -102,8 +102,55 @@
         track('galeria_ver_mas');
       });
     }
+
+    // Recorrido en el lightbox: cuenta cuántas fotos distintas mira la
+    // persona entre que abre y cierra, y manda UN solo evento al cerrar
+    // (en vez de uno por cada flecha/swipe, para no inundar GA4).
+    var vistas = null;
+    document.addEventListener('lightbox:open', function () { vistas = {}; });
+    document.addEventListener('lightbox:view', function (e) {
+      if (vistas) vistas[e.detail.index] = true;
+    });
+    document.addEventListener('lightbox:close', function () {
+      if (!vistas) return;
+      track('galeria_recorrido', { fotos_vistas: Object.keys(vistas).length });
+      vistas = null;
+    });
   }
 
-  if (document.readyState !== 'loading') initGaleria();
-  else document.addEventListener('DOMContentLoaded', initGaleria);
+  // 5) Profundidad de scroll por tramos (GA4 solo marca 90% por defecto).
+  //    Dice DÓNDE abandona la gente en páginas largas.
+  function initScroll() {
+    var marcas = [25, 50, 75, 100];
+    var disparadas = {};
+    var ticking = false;
+
+    function medir() {
+      ticking = false;
+      var doc = document.documentElement;
+      var alto = doc.scrollHeight - doc.clientHeight;
+      if (alto <= 0) return;
+      var pct = ((window.scrollY || doc.scrollTop) / alto) * 100;
+      marcas.forEach(function (m) {
+        if (pct >= m && !disparadas[m]) {
+          disparadas[m] = true;
+          track('scroll_profundidad', { porcentaje: m, pagina: document.title });
+        }
+      });
+    }
+
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(medir);
+    }, { passive: true });
+  }
+
+  function init() {
+    initGaleria();
+    initScroll();
+  }
+
+  if (document.readyState !== 'loading') init();
+  else document.addEventListener('DOMContentLoaded', init);
 })();

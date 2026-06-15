@@ -34,6 +34,12 @@ function createLightbox(getItems) {
   let index = 0;
   let items = [];
 
+  // Emite eventos para que otros módulos (p. ej. analytics) puedan escuchar
+  // sin acoplarse al lightbox. Cubre flechas, teclado y swipe por igual.
+  function emit(name, detail) {
+    document.dispatchEvent(new CustomEvent(name, { detail: detail || {} }));
+  }
+
   function render() {
     const item = items[index];
     if (!item) return;
@@ -42,6 +48,7 @@ function createLightbox(getItems) {
     if (titleEl) titleEl.textContent = item.title || '';
     if (descEl) descEl.textContent = item.description || '';
     if (counterEl) counterEl.textContent = (index + 1) + ' / ' + items.length;
+    emit('lightbox:view', { index: index, total: items.length, src: item.src });
     // Precargar la siguiente para navegación fluida
     const next = items[(index + 1) % items.length];
     if (next) { const pre = new Image(); pre.src = next.src; }
@@ -51,6 +58,7 @@ function createLightbox(getItems) {
     items = (typeof getItems === 'function' ? getItems() : getItems) || [];
     if (!items.length) return;
     index = i;
+    emit('lightbox:open', { index: index, total: items.length });
     render();
     lightbox.style.display = 'flex';
     requestAnimationFrame(() => lightbox.classList.add('active'));
@@ -59,6 +67,7 @@ function createLightbox(getItems) {
 
   function close() {
     lightbox.classList.remove('active');
+    emit('lightbox:close', {});
     setTimeout(() => {
       lightbox.style.display = 'none';
       document.body.style.overflow = '';
