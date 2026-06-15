@@ -216,6 +216,39 @@
             margin: 0;
         }
 
+        /* Load More */
+        .gallery-loadmore {
+            text-align: center;
+            margin-bottom: 50px;
+            display: none;
+        }
+
+        .gallery-loadmore.show {
+            display: block;
+        }
+
+        .loadmore-btn {
+            font-family: 'Oswald', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 14px 40px;
+            background: transparent;
+            border: 2px solid #111;
+            color: #111;
+            border-radius: 30px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .loadmore-btn:hover {
+            background: #111;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
         /* Empty State */
         .gallery-empty {
             text-align: center;
@@ -489,6 +522,8 @@
         .empty-title { color: var(--ink-dim); }
         .empty-text { color: var(--ink-faint); }
         .loading-spinner { border-color: rgba(255, 255, 255, 0.12); border-top-color: var(--white); }
+        .loadmore-btn { border-color: var(--white); color: var(--ink); }
+        .loadmore-btn:hover { background: var(--white); color: #111; box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15); }
     </style>
 
     <!-- Favicon -->
@@ -571,6 +606,13 @@
             <div class="gallery-main">
                 <div class="gallery-grid" id="gallery-grid">
                     <!-- Gallery items will be dynamically loaded here -->
+                </div>
+
+                <!-- Load More -->
+                <div class="gallery-loadmore" id="gallery-loadmore">
+                    <button class="loadmore-btn" id="loadmore-btn" type="button">
+                        Ver más trabajos
+                    </button>
                 </div>
 
                 <!-- Empty State -->
@@ -665,46 +707,72 @@
         const filterBtns = Array.from(document.querySelectorAll('.filter-btn'));
         const visibleCount = document.getElementById('visible-count');
         const totalCount = document.getElementById('total-count');
+        const loadMore = document.getElementById('gallery-loadmore');
+        const loadMoreBtn = document.getElementById('loadmore-btn');
         const data = window.galleryData || [];
         const VALID = ['todos', 'brazo', 'pierna', 'espalda'];
+        const PAGE_SIZE = 20;
 
         let filtered = data.slice();
+        let shown = 0;
         const lightbox = createLightbox(() => filtered);
 
-        function render() {
-          grid.innerHTML = '';
-          filtered.forEach((item, i) => {
-            const el = document.createElement('div');
-            el.className = 'gallery-item';
-            el.dataset.location = item.location;
+        function createItem(item, index) {
+          const el = document.createElement('div');
+          el.className = 'gallery-item';
+          el.dataset.location = item.location;
 
-            const img = document.createElement('img');
-            img.src = item.src;
-            img.alt = 'Tatuaje de ' + item.location + ' de Richard Scobar';
-            img.loading = 'lazy';
-            el.appendChild(img);
+          const img = document.createElement('img');
+          img.src = item.src;
+          img.alt = 'Tatuaje de ' + item.location + ' de Richard Scobar';
+          img.loading = 'lazy';
+          el.appendChild(img);
 
-            // Overlay solo si hay una descripción real (sin títulos genéricos)
-            if (item.description) {
-              const overlay = document.createElement('div');
-              overlay.className = 'gallery-overlay';
-              overlay.innerHTML = '<div class="gallery-info"><p>' + item.description + '</p></div>';
-              el.appendChild(overlay);
-            }
+          // Overlay solo si hay una descripción real (sin títulos genéricos)
+          if (item.description) {
+            const overlay = document.createElement('div');
+            overlay.className = 'gallery-overlay';
+            overlay.innerHTML = '<div class="gallery-info"><p>' + item.description + '</p></div>';
+            el.appendChild(overlay);
+          }
 
-            el.addEventListener('click', () => lightbox.open(i));
+          el.addEventListener('click', () => lightbox.open(index));
+          return el;
+        }
+
+        // Renderiza la siguiente tanda (PAGE_SIZE) sin tocar lo ya mostrado
+        function renderNext() {
+          const batch = filtered.slice(shown, shown + PAGE_SIZE);
+          batch.forEach((item, i) => {
+            const index = shown + i;
+            const el = createItem(item, index);
             grid.appendChild(el);
             // Reveal escalonado, con tope para no demorar con muchas fotos
             setTimeout(() => el.classList.add('visible'), Math.min(i, 12) * 45);
           });
+          shown += batch.length;
           updateStats();
+          updateControls();
+        }
+
+        // Reinicia la grilla (al cambiar de filtro) y muestra la primera tanda
+        function render() {
+          grid.innerHTML = '';
+          shown = 0;
+          renderNext();
           emptyState.classList.toggle('show', filtered.length === 0);
         }
 
         function updateStats() {
-          if (visibleCount) visibleCount.textContent = filtered.length;
-          if (totalCount) totalCount.textContent = data.length;
+          if (visibleCount) visibleCount.textContent = shown;
+          if (totalCount) totalCount.textContent = filtered.length;
         }
+
+        function updateControls() {
+          loadMore.classList.toggle('show', shown < filtered.length);
+        }
+
+        if (loadMoreBtn) loadMoreBtn.addEventListener('click', renderNext);
 
         function applyFilter(filter) {
           filtered = filter === 'todos' ? data.slice() : data.filter((d) => d.location === filter);
