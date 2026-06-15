@@ -1,46 +1,66 @@
 /*
- * Google Analytics 4 — medición del sitio de Richard Scobar.
+ * Umami — medición del sitio de Richard Scobar.
+ * Privacy-friendly y sin cookies (no requiere banner de consentimiento).
  *
  * CÓMO ACTIVARLO:
- *   1. Entrá a https://analytics.google.com y creá una propiedad Web.
- *   2. Copiá el "ID de medición" (formato G-XXXXXXXXXX).
- *   3. Pegalo abajo en MEASUREMENT_ID. ¡Eso es todo!
+ *   1. Conseguí una instancia de Umami:
+ *      - Opción fácil: cuenta gratis en https://cloud.umami.is
+ *      - O self-host (Docker/Vercel) con tu propio dominio.
+ *   2. Agregá tu sitio en el panel (Settings → Websites). Te da un
+ *      "Website ID" (un UUID) y la URL del script de tracking.
+ *   3. Pegá ambos valores abajo en UMAMI_SRC y WEBSITE_ID. ¡Listo!
  *
- * Hasta que reemplaces el ID no se envía ningún dato (modo seguro).
+ * Hasta que reemplaces el WEBSITE_ID no se envía ningún dato (modo seguro).
  *
  * Eventos que mide:
- *   - page_view, scroll, tiempo de interacción ...... automático (GA4)
+ *   - page_view ............. automático (Umami, sin cookies)
  *   - contacto_whatsapp ..... click a WhatsApp (con ubicación: fab/contacto/header/footer)
  *   - contacto_instagram .... click a Instagram (con ubicación)
  *   - galeria_foto_abierta .. abrir una foto en el lightbox (foto + categoría)
  *   - galeria_filtro ........ usar un filtro (brazo/pierna/espalda/todos)
  *   - galeria_ver_mas ....... click en "Ver más trabajos"
+ *   - galeria_recorrido ..... cuántas fotos distintas miró en el lightbox
+ *   - scroll_profundidad .... tramos 25/50/75/100% de scroll
  */
 (function () {
   'use strict';
 
-  // ⬇️⬇️⬇️  PEGÁ ACÁ TU ID DE GA4  ⬇️⬇️⬇️
-  var MEASUREMENT_ID = 'G-XXXXXXXXXX';
-  // ⬆️⬆️⬆️ -------------------------- ⬆️⬆️⬆️
+  // ⬇️⬇️⬇️  CONFIG UMAMI — completá estos dos valores  ⬇️⬇️⬇️
+  // URL del script de tu instancia de Umami:
+  //   - Umami Cloud: 'https://cloud.umami.is/script.js'
+  //   - Self-host:   'https://TU-DOMINIO/script.js'
+  var UMAMI_SRC = 'https://cloud.umami.is/script.js';
+  // Website ID (UUID) que te da el panel de Umami:
+  var WEBSITE_ID = 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX';
+  // ⬆️⬆️⬆️ -------------------------------------------- ⬆️⬆️⬆️
 
-  if (!MEASUREMENT_ID || MEASUREMENT_ID === 'G-XXXXXXXXXX') {
-    console.info('[analytics] Falta configurar MEASUREMENT_ID en js/analytics.js — no se envían datos todavía.');
+  if (!WEBSITE_ID || WEBSITE_ID.indexOf('XXXX') !== -1) {
+    console.info('[analytics] Falta configurar WEBSITE_ID en js/analytics.js — no se envían datos todavía.');
     return;
   }
 
-  // 1) Cargar gtag.js (la librería oficial de GA4)
+  // 1) Cargar el script de Umami (rastrea page_view automáticamente, sin cookies)
   var s = document.createElement('script');
   s.async = true;
-  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + MEASUREMENT_ID;
+  s.defer = true;
+  s.src = UMAMI_SRC;
+  s.setAttribute('data-website-id', WEBSITE_ID);
   document.head.appendChild(s);
 
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { window.dataLayer.push(arguments); }
-  window.gtag = gtag;
-  gtag('js', new Date());
-  gtag('config', MEASUREMENT_ID);
-
-  function track(name, params) { gtag('event', name, params || {}); }
+  // Helper: manda un evento. Si Umami todavía no cargó, lo encola y reintenta.
+  var cola = [];
+  function flush() {
+    if (!(window.umami && typeof window.umami.track === 'function')) return;
+    while (cola.length) {
+      var ev = cola.shift();
+      window.umami.track(ev.name, ev.data);
+    }
+  }
+  function track(name, data) {
+    cola.push({ name: name, data: data || {} });
+    flush();
+  }
+  s.addEventListener('load', flush);
 
   // 2) ¿En qué parte de la página está el link de contacto?
   function ubicacion(el) {
@@ -105,7 +125,7 @@
 
     // Recorrido en el lightbox: cuenta cuántas fotos distintas mira la
     // persona entre que abre y cierra, y manda UN solo evento al cerrar
-    // (en vez de uno por cada flecha/swipe, para no inundar GA4).
+    // (en vez de uno por cada flecha/swipe, para no inundar la métrica).
     var vistas = null;
     document.addEventListener('lightbox:open', function () { vistas = {}; });
     document.addEventListener('lightbox:view', function (e) {
@@ -118,8 +138,8 @@
     });
   }
 
-  // 5) Profundidad de scroll por tramos (GA4 solo marca 90% por defecto).
-  //    Dice DÓNDE abandona la gente en páginas largas.
+  // 5) Profundidad de scroll por tramos: dice DÓNDE abandona la gente
+  //    en páginas largas.
   function initScroll() {
     var marcas = [25, 50, 75, 100];
     var disparadas = {};
