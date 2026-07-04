@@ -1,6 +1,6 @@
-# Richard Escobar - Tattoo Artist Portfolio
+# Richard Scobar - Tattoo Artist Portfolio
 
-Sitio web profesional para el tatuador Richard Escobar, especialista en geometría sagrada, neotribal y blackwork.
+Sitio web profesional para el tatuador Richard Scobar, especialista en geometría sagrada, neotribal y blackwork.
 
 ## 🎨 Características
 
@@ -85,7 +85,7 @@ filterButtons.forEach(button => {
 
 ## 🎯 Información del Artista
 
-- **Nombre**: Richard Escobar
+- **Nombre**: Richard Scobar
 - **Especialidades**: Geometría sagrada, Neotribal, Blackwork
 - **Experiencia**: 20+ años
 - **Ubicación**: Buenos Aires, Argentina
@@ -114,4 +114,4 @@ filterButtons.forEach(button => {
 
 ---
 
-*Sitio web desarrollado para Richard Escobar Tattoo Artist*
+*Sitio web desarrollado para Richard Scobar Tattoo Artist*
