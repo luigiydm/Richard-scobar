@@ -29,9 +29,9 @@
   // URL del script de tu instancia de Umami:
   //   - Umami Cloud: 'https://cloud.umami.is/script.js'
   //   - Self-host:   'https://TU-DOMINIO/script.js'
-  var UMAMI_SRC = 'https://cloud.umami.is/script.js';
+  var UMAMI_SRC = 'https://analytics.luisivanpayero.com/script.js';
   // Website ID (UUID) que te da el panel de Umami:
-  var WEBSITE_ID = 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX';
+  var WEBSITE_ID = '456b4773-c672-4b3b-b3a0-13bb3e8b3c05';
   // ⬆️⬆️⬆️ -------------------------------------------- ⬆️⬆️⬆️
 
   if (!WEBSITE_ID || WEBSITE_ID.indexOf('XXXX') !== -1) {
